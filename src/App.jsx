@@ -6,6 +6,7 @@ import { FunnelIcon } from '@heroicons/react/24/outline'
 import { AdjustmentsVerticalIcon } from '@heroicons/react/20/solid'
 import { RectangleGroupIcon } from '@heroicons/react/24/outline'
 import { EyeSlashIcon } from '@heroicons/react/24/outline'
+import { PlusIcon } from '@heroicons/react/20/solid'
 
 const tabs = [
   { name: 'List', href: '#', current: true },
@@ -79,12 +80,32 @@ function App() {
             Group By
           </button>
           <button
-          type="button"
-          className="relative inline-flex rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-500 ring-1 ring-inset ring-transparent hover:bg-gray-50"
-        >
-          <EyeSlashIcon className="mr-2 h-5 w-5 text-gray-500" aria-hidden="true" />
-          Hide
-        </button>
+            type="button"
+            className="relative inline-flex rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-500 ring-1 ring-inset ring-transparent hover:bg-gray-50"
+          >
+            <EyeSlashIcon className="mr-2 h-5 w-5 text-gray-500" aria-hidden="true" />
+            Hide
+          </button>
+        </div>
+      </div>
+      <div className="border-b border-gray-200 flex">
+        <div className="p-5 ml-4 mr-96">
+          <p>Task Name</p>
+        </div>
+        <div className="p-5 w-48 border-r border-l border-gray-200">
+          <p>Assignee</p>
+        </div>
+        <div className="p-5 w-48 border-r border-gray-200">
+          <p>Due Date</p>
+        </div>
+        <div className="p-5 w-48 border-r border-gray-200">
+          <p>Priority</p>
+        </div>
+        <div className="p-5 w-48 border-r border-gray-200">
+          <p>Status</p>
+        </div>
+        <div className="p-5">
+        <PlusIcon className="mr-2 h-5 w-5 text-gray-900" aria-hidden="true" />
         </div>
       </div>
     </div>
