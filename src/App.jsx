@@ -1,6 +1,11 @@
 import React from 'react'
 import './App.css'
 import logo from '../src/assets/todoLogo.png';
+import ButtonAdd from '../src/components/ButtonAdd'
+import { FunnelIcon } from '@heroicons/react/24/outline'
+import { AdjustmentsVerticalIcon } from '@heroicons/react/20/solid'
+import { RectangleGroupIcon } from '@heroicons/react/24/outline'
+import { EyeSlashIcon } from '@heroicons/react/24/outline'
 
 const tabs = [
   { name: 'List', href: '#', current: true },
@@ -47,6 +52,39 @@ function App() {
               </nav>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="p-5 border-b border-gray-200">
+        <div className="inline-flex gap-4">
+          <ButtonAdd></ButtonAdd>
+          <button
+            type="button"
+            className="relative inline-flex rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-500 ring-1 ring-inset ring-transparent hover:bg-gray-50"
+          >
+            <FunnelIcon className="mr-2 h-5 w-5 text-gray-500" aria-hidden="true" />
+            Filter
+          </button>
+          <button
+            type="button"
+            className="relative inline-flex rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-500 ring-1 ring-inset ring-transparent hover:bg-gray-50"
+          >
+            <AdjustmentsVerticalIcon className="mr-2 h-5 w-5 text-gray-500" aria-hidden="true" />
+            Sort
+          </button>
+          <button
+            type="button"
+            className="relative inline-flex rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-500 ring-1 ring-inset ring-transparent hover:bg-gray-50"
+          >
+            <RectangleGroupIcon className="mr-2 h-5 w-5 text-gray-500" aria-hidden="true" />
+            Group By
+          </button>
+          <button
+          type="button"
+          className="relative inline-flex rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-500 ring-1 ring-inset ring-transparent hover:bg-gray-50"
+        >
+          <EyeSlashIcon className="mr-2 h-5 w-5 text-gray-500" aria-hidden="true" />
+          Hide
+        </button>
         </div>
       </div>
     </div>
