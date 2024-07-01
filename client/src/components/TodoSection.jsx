@@ -58,7 +58,11 @@ const TodoSection = ({ isAddingTask, setIsAddingTask }) => {
 
     const handleKeyPress = (id, e) => {
         if (e.key === 'Enter') {
-            handleUpdateTask(id);
+            if (id === null) {
+                handleSaveTask();
+            } else {
+                handleUpdateTask(id);
+            }
         }
     };
 
@@ -132,6 +136,7 @@ const TodoSection = ({ isAddingTask, setIsAddingTask }) => {
                                 placeholder="Write a task name.."
                                 value={newTask.taskName}
                                 onChange={handleInputChange}
+                                onKeyPress={(e) => handleKeyPress(null, e)}
                             />
                         </div>
                         <div className="p-5 w-60 border-r border-l border-gray-200 overflow-hidden">
@@ -141,6 +146,7 @@ const TodoSection = ({ isAddingTask, setIsAddingTask }) => {
                                 placeholder="Assign to people"
                                 value={newTask.assignee}
                                 onChange={handleInputChange}
+                                onKeyPress={(e) => handleKeyPress(null, e)}
                             />
                         </div>
                         <div className="p-5 w-60 border-r border-gray-200 overflow-hidden">
@@ -150,6 +156,7 @@ const TodoSection = ({ isAddingTask, setIsAddingTask }) => {
                                 placeholder="Due Date.."
                                 value={newTask.dueDate}
                                 onChange={handleInputChange}
+                                onKeyPress={(e) => handleKeyPress(null, e)}
                             />
                         </div>
                         <div className="p-5 w-60 border-r border-gray-200 overflow-hidden">
@@ -159,6 +166,7 @@ const TodoSection = ({ isAddingTask, setIsAddingTask }) => {
                                 placeholder="Priority.."
                                 value={newTask.priority}
                                 onChange={handleInputChange}
+                                onKeyPress={(e) => handleKeyPress(null, e)}
                             />
                         </div>
                         <div className="p-5 w-60 border-r border-gray-200 overflow-hidden">
@@ -168,10 +176,8 @@ const TodoSection = ({ isAddingTask, setIsAddingTask }) => {
                                 placeholder="Status.."
                                 value={newTask.status}
                                 onChange={handleInputChange}
+                                onKeyPress={(e) => handleKeyPress(null, e)}
                             />
-                        </div>
-                        <div className="p-5">
-                            <button className="text-blue-600 p-5" onClick={handleSaveTask}>Save</button>
                         </div>
                     </div>
                 )}
