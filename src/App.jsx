@@ -2,11 +2,9 @@ import React from 'react'
 import './App.css'
 import logo from '../src/assets/todoLogo.png';
 import ButtonAdd from '../src/components/ButtonAdd'
-import { FunnelIcon } from '@heroicons/react/24/outline'
-import { AdjustmentsVerticalIcon } from '@heroicons/react/20/solid'
-import { RectangleGroupIcon } from '@heroicons/react/24/outline'
-import { EyeSlashIcon } from '@heroicons/react/24/outline'
-import { PlusIcon } from '@heroicons/react/20/solid'
+import { FunnelIcon, RectangleGroupIcon, EyeSlashIcon } from '@heroicons/react/24/outline'
+import { AdjustmentsVerticalIcon, PlusIcon } from '@heroicons/react/20/solid'
+import TodoSection from '../src/components/TodoSection';
 
 const tabs = [
   { name: 'List', href: '#', current: true },
@@ -92,21 +90,24 @@ function App() {
         <div className="p-5 ml-4 mr-96">
           <p>Task Name</p>
         </div>
-        <div className="p-5 w-48 border-r border-l border-gray-200">
+        <div className="p-5 w-60 border-r border-l border-gray-200">
           <p>Assignee</p>
         </div>
-        <div className="p-5 w-48 border-r border-gray-200">
+        <div className="p-5 w-60 border-r border-gray-200">
           <p>Due Date</p>
         </div>
-        <div className="p-5 w-48 border-r border-gray-200">
+        <div className="p-5 w-60 border-r border-gray-200">
           <p>Priority</p>
         </div>
-        <div className="p-5 w-48 border-r border-gray-200">
+        <div className="p-5 w-60 border-r border-gray-200">
           <p>Status</p>
         </div>
         <div className="p-5">
-        <PlusIcon className="mr-2 h-5 w-5 text-gray-900" aria-hidden="true" />
+          <PlusIcon className="mr-2 h-5 w-5 text-gray-900" aria-hidden="true" />
         </div>
+      </div>
+      <div>
+        <TodoSection></TodoSection>
       </div>
     </div>
   )
