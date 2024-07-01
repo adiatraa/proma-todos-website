@@ -94,8 +94,8 @@ function App() {
         </div>
       </div>
       <div className="border-b border-gray-200 flex">
-        <div className="p-5 ml-4 mr-96">
-          <p>Task Name</p>
+        <div className="p-5 ml-4">
+          <p className="mr-96">Task Name</p>
         </div>
         <div className="p-5 w-60 border-r border-l border-gray-200">
           <p>Assignee</p>
