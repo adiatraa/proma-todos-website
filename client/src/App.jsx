@@ -1,10 +1,10 @@
 import React from 'react'
 import './App.css'
-import logo from '../src/assets/todoLogo.png';
-import ButtonAdd from '../src/components/ButtonAdd'
+import logo from './assets/todoLogo.png';
+import ButtonAdd from './components/ButtonAdd'
 import { FunnelIcon, RectangleGroupIcon, EyeSlashIcon } from '@heroicons/react/24/outline'
 import { AdjustmentsVerticalIcon, PlusIcon } from '@heroicons/react/20/solid'
-import TodoSection from '../src/components/TodoSection';
+import TodoSection from './components/TodoSection';
 
 const tabs = [
   { name: 'List', href: '#', current: true },
