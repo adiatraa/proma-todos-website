@@ -18,19 +18,11 @@
     },
     {
       "id": "0914",
-      "taskName": "Create Component",
+      "taskName": "Create Components",
       "assignee": "Michigan Udin",
       "dueDate": "June 21 - Jul 22",
       "priority": "Low",
       "status": "Off track"
-    },
-    {
-      "id": "edd9",
-      "taskName": "Create ERD",
-      "assignee": "Debo",
-      "dueDate": "June 21 - Jul 26",
-      "priority": "Low",
-      "status": "Done"
     }
   ]
 }

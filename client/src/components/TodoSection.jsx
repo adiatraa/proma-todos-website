@@ -20,9 +20,13 @@ const TodoSection = ({ isAddingTask, setIsAddingTask, sectionName, isOpen, onTog
         const { taskName, assignee, dueDate, priority, status } = newTask;
         if (!taskName || !assignee || !dueDate || !priority || !status) {
             Swal.fire({
+
                 icon: 'warning',
                 title: 'Incomplete Fields',
                 text: 'Please fill in all fields before saving the task.',
+                showConfirmButton: false,
+                timer: 1000,
+                position: 'top-end'
             });
             return;
         }
@@ -36,6 +40,9 @@ const TodoSection = ({ isAddingTask, setIsAddingTask, sectionName, isOpen, onTog
                     icon: 'success',
                     title: 'Task Created',
                     text: 'Your task has been created successfully!',
+                    showConfirmButton: false,
+                    timer: 1000,
+                    position: 'top-end'
                 });
             })
             .catch((err) => console.error(err));
@@ -59,6 +66,9 @@ const TodoSection = ({ isAddingTask, setIsAddingTask, sectionName, isOpen, onTog
                 icon: 'warning',
                 title: 'Incomplete Fields',
                 text: 'Please fill in all fields before updating the task.',
+                showConfirmButton: false,
+                timer: 1000,
+                position: 'top-end'
             });
             return;
         }
@@ -70,6 +80,9 @@ const TodoSection = ({ isAddingTask, setIsAddingTask, sectionName, isOpen, onTog
                     icon: 'success',
                     title: 'Task Updated',
                     text: 'Your task has been updated successfully!',
+                    showConfirmButton: false,
+                    timer: 1000,
+                    position: 'top-end'
                 });
             })
             .catch((err) => console.error(err));
@@ -80,6 +93,14 @@ const TodoSection = ({ isAddingTask, setIsAddingTask, sectionName, isOpen, onTog
             .delete(`/todoList/${id}`)
             .then(() => {
                 setTodoList(prevList => prevList.filter(task => task.id !== id));
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Task Deleted',
+                    text: 'Your task has been deleted successfully!',
+                    showConfirmButton: false,
+                    timer: 1000,
+                    position: 'top-end'
+                });
             })
             .catch((err) => console.error(err));
     };
@@ -93,9 +114,12 @@ const TodoSection = ({ isAddingTask, setIsAddingTask, sectionName, isOpen, onTog
             .then((res) => {
                 setTodoList(prevList => prevList.map(task => task.id === id ? res.data : task));
                 Swal.fire({
+                    position: 'top-end',
                     icon: 'success',
                     title: newStatus === "Done" ? 'Task Done' : 'Task Reopened',
                     text: newStatus === "Done" ? 'Your task has been marked as done!' : 'Your task has been reopened!',
+                    showConfirmButton: false,
+                    timer: 1000,
                 });
             })
             .catch((err) => console.error(err));
@@ -121,10 +145,10 @@ const TodoSection = ({ isAddingTask, setIsAddingTask, sectionName, isOpen, onTog
                 {todoList.map((todo) => (
                     <div key={todo.id} className="flex flex-col sm:flex-row w-full border-b border-gray-200">
                         <div className="ml-4 flex items-center w-full sm:w-[505px] overflow-hidden">
-                            <CheckBadgeIcon 
-                                className={`mr-2 h-7 w-7 ${todo.status === 'Done' ? 'text-green-600' : 'text-gray-900'} ml-4 cursor-pointer`} 
-                                aria-hidden="true" 
-                                onClick={() => handleDoneTask(todo.id)} 
+                            <CheckBadgeIcon
+                                className={`mr-2 h-7 w-7 ${todo.status === 'Done' ? 'text-green-600' : 'text-gray-900'} ml-4 cursor-pointer`}
+                                aria-hidden="true"
+                                onClick={() => handleDoneTask(todo.id)}
                             />
                             <input
                                 className="w-full p-2 border-transparent focus:outline-none focus:ring-0 focus:border-transparent"
