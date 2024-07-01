@@ -17,14 +17,6 @@
       "status": "At risk"
     },
     {
-      "id": "8e65",
-      "taskName": "",
-      "assignee": "",
-      "dueDate": "",
-      "priority": "",
-      "status": ""
-    },
-    {
       "id": "f068",
       "taskName": "Create Graph Page",
       "assignee": "Testing",

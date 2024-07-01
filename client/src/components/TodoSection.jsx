@@ -29,13 +29,13 @@ const TodoSection = ({ isAddingTask, setIsAddingTask }) => {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setNewTask(newTask => ({ ...newTask, [name]: value }));
+        setNewTask(prevTask => ({ ...prevTask, [name]: value }));
     };
 
     const handleEditInputChange = (id, e) => {
         const { name, value } = e.target;
         setTodoList(prevList => prevList.map(task => task.id === id ? { ...task, [name]: value } : task));
-    }
+    };
 
     const handleUpdateTask = (id) => {
         const updatedTask = todoList.find(task => task.id === id);
@@ -45,13 +45,22 @@ const TodoSection = ({ isAddingTask, setIsAddingTask }) => {
                 setTodoList(prevList => prevList.map(task => task.id === id ? res.data : task));
             })
             .catch((err) => console.error(err));
-    }
+    };
+
+    const handleDeleteTask = (id) => {
+        mainApi
+            .delete(`/todoList/${id}`)
+            .then(() => {
+                setTodoList(prevList => prevList.filter(task => task.id !== id));
+            })
+            .catch((err) => console.error(err));
+    };
 
     const handleKeyPress = (id, e) => {
         if (e.key === 'Enter') {
             handleUpdateTask(id);
         }
-    }
+    };
 
     return (
         <div>
