@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
-import './App.css'
+import React, { useState } from "react";
+import './App.css';
 import logo from './assets/todoLogo.png';
-import ButtonAdd from './components/ButtonAdd'
-import { FunnelIcon, RectangleGroupIcon, EyeSlashIcon } from '@heroicons/react/24/outline'
-import { AdjustmentsVerticalIcon, PlusIcon } from '@heroicons/react/20/solid'
+import ButtonAdd from './components/ButtonAdd';
+import { FunnelIcon, RectangleGroupIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
+import { AdjustmentsVerticalIcon, PlusIcon } from '@heroicons/react/20/solid';
 import TodoSection from './components/TodoSection';
-import mainApi from './services/mainApi'
 
 const tabs = [
   { name: 'List', href: '#', current: true },
@@ -16,13 +15,20 @@ const tabs = [
   { name: 'Workflow', href: '#', current: false },
   { name: 'Messages', href: '#', current: false },
   { name: 'File', href: '#', current: false },
-]
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(' ');
 }
 
 function App() {
+  const [newTask, setNewTask] = useState({ taskName: "", assignee: "", dueDate: "", priority: "", status: "" });
+  const [isAddingTask, setIsAddingTask] = useState(false);
+
+  const handleAddTask = () => {
+    setNewTask({ taskName: "", assignee: "", dueDate: "", priority: "", status: "" });
+    setIsAddingTask(true);
+  };
 
   return (
     <div>
@@ -57,7 +63,7 @@ function App() {
       </div>
       <div className="p-5 border-b border-gray-200">
         <div className="inline-flex gap-4">
-          <ButtonAdd></ButtonAdd>
+          <ButtonAdd onAddTask={handleAddTask} />
           <button
             type="button"
             className="relative inline-flex rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-500 ring-1 ring-inset ring-transparent hover:bg-gray-50"
@@ -109,10 +115,10 @@ function App() {
         </div>
       </div>
       <div>
-        <TodoSection></TodoSection>
+        <TodoSection />
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import { PlusIcon } from '@heroicons/react/20/solid'
+import React from 'react';
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import { ChevronDownIcon, PlusIcon } from '@heroicons/react/20/solid';
 
 const items = [
     { name: 'Add Section', href: '#' },
     { name: 'Add Milestone', href: '#' },
     { name: 'Add Approval', href: '#' },
-]
+];
 
 function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-  }
+    return classes.filter(Boolean).join(' ');
+}
 
-export default function ButtonAdd() {
+export default function ButtonAdd({ onAddTask }) {
     return (
         <div className="inline-flex rounded-md shadow-sm ml-4">
             <button
                 type="button"
                 className="relative inline-flex items-center rounded-l-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
+                onClick={onAddTask}
             >
                 <PlusIcon className="mr-2 h-5 w-5 text-gray-900" aria-hidden="true" />
                 Add Task
@@ -52,5 +52,5 @@ export default function ButtonAdd() {
                 </MenuItems>
             </Menu>
         </div>
-    )
+    );
 }
