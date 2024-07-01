@@ -2,35 +2,11 @@
   "todoList": [
     {
       "id": "1",
-      "taskName": "Create HomePage Design Area",
+      "taskName": "Create HomePage Design Areaass",
       "assignee": "Adiat Rahman",
       "dueDate": "June 30 - Jul 1",
       "priority": "High",
       "status": "On track"
-    },
-    {
-      "id": "2",
-      "taskName": "Create Detail Page Change",
-      "assignee": "Elon Musk",
-      "dueDate": "June 23 - Jul 4",
-      "priority": "Medium",
-      "status": "At risk"
-    },
-    {
-      "id": "f068",
-      "taskName": "Create Graph Page",
-      "assignee": "Testing",
-      "dueDate": "June 22 - Oct 25",
-      "priority": "High",
-      "status": "On track"
-    },
-    {
-      "id": "356f",
-      "taskName": "Create Message Page",
-      "assignee": "Demiro",
-      "dueDate": "June 21 - Jul 22",
-      "priority": "Medium",
-      "status": "At risk"
     }
   ]
 }

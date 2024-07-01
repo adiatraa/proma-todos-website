@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDownIcon, CheckBadgeIcon, ChevronRightIcon, TrashIcon } from '@heroicons/react/24/outline';
+import Swal from 'sweetalert2';
 import mainApi from '../services/mainApi';
 
 const TodoSection = ({ isAddingTask, setIsAddingTask }) => {
@@ -23,6 +24,14 @@ const TodoSection = ({ isAddingTask, setIsAddingTask }) => {
                 setTodoList([...todoList, res.data]);
                 setIsAddingTask(false);
                 setNewTask({ taskName: "", assignee: "", dueDate: "", priority: "", status: "" });
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Task Created',
+                    text: 'Your task has been created successfully!',
+                    showConfirmButton: false,
+                    timer: 1000
+                });
             })
             .catch((err) => console.error(err));
     };
@@ -43,6 +52,14 @@ const TodoSection = ({ isAddingTask, setIsAddingTask }) => {
             .put(`/todoList/${id}`, updatedTask)
             .then((res) => {
                 setTodoList(prevList => prevList.map(task => task.id === id ? res.data : task));
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Task Updated',
+                    text: 'Your task has been updated successfully!',
+                    showConfirmButton: false,
+                    timer: 1000
+                });
             })
             .catch((err) => console.error(err));
     };
@@ -52,6 +69,14 @@ const TodoSection = ({ isAddingTask, setIsAddingTask }) => {
             .delete(`/todoList/${id}`)
             .then(() => {
                 setTodoList(prevList => prevList.filter(task => task.id !== id));
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Task Deleted',
+                    text: 'Your task has been deleted successfully!',
+                    showConfirmButton: false,
+                    timer: 1000
+                });
             })
             .catch((err) => console.error(err));
     };
