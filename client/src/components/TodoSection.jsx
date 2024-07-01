@@ -18,6 +18,15 @@ const TodoSection = ({ isAddingTask, setIsAddingTask }) => {
     }, []);
 
     const handleSaveTask = () => {
+        const { taskName, assignee, dueDate, priority, status } = newTask;
+        if (!taskName || !assignee || !dueDate || !priority || !status) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Incomplete Fields',
+                text: 'Please fill in all fields before saving the task.',
+            });
+            return;
+        }
         mainApi
             .post("/todoList", newTask)
             .then((res) => {
@@ -25,12 +34,9 @@ const TodoSection = ({ isAddingTask, setIsAddingTask }) => {
                 setIsAddingTask(false);
                 setNewTask({ taskName: "", assignee: "", dueDate: "", priority: "", status: "" });
                 Swal.fire({
-                    position: 'top-end',
                     icon: 'success',
                     title: 'Task Created',
                     text: 'Your task has been created successfully!',
-                    showConfirmButton: false,
-                    timer: 1000
                 });
             })
             .catch((err) => console.error(err));
@@ -48,17 +54,23 @@ const TodoSection = ({ isAddingTask, setIsAddingTask }) => {
 
     const handleUpdateTask = (id) => {
         const updatedTask = todoList.find(task => task.id === id);
+        const { taskName, assignee, dueDate, priority, status } = updatedTask;
+        if (!taskName || !assignee || !dueDate || !priority || !status) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Incomplete Fields',
+                text: 'Please fill in all fields before updating the task.',
+            });
+            return;
+        }
         mainApi
             .put(`/todoList/${id}`, updatedTask)
             .then((res) => {
                 setTodoList(prevList => prevList.map(task => task.id === id ? res.data : task));
                 Swal.fire({
-                    position: 'top-end',
                     icon: 'success',
                     title: 'Task Updated',
                     text: 'Your task has been updated successfully!',
-                    showConfirmButton: false,
-                    timer: 1000
                 });
             })
             .catch((err) => console.error(err));
