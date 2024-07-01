@@ -23,6 +23,7 @@ function classNames(...classes) {
 
 function App() {
   const [isAddingTask, setIsAddingTask] = useState(false);
+  const [openSection, setOpenSection] = useState('Project Planning');
 
   const handleAddTask = () => {
     setIsAddingTask(true);
@@ -38,7 +39,7 @@ function App() {
         <div className="border-b border-gray-200 w-full">
           <div className="sm:flex sm:items-baseline">
             <div className="mt-4 sm:ml-10 sm:mt-0">
-              <nav className="-mb-px flex space-x-8">
+              <nav className="-mb-px flex space-x-4 sm:space-x-8">
                 {tabs.map((tab) => (
                   <a
                     key={tab.name}
@@ -113,7 +114,27 @@ function App() {
         </div>
       </div>
       <div>
-        <TodoSection isAddingTask={isAddingTask} setIsAddingTask={setIsAddingTask} />
+        <TodoSection
+          isAddingTask={isAddingTask}
+          setIsAddingTask={setIsAddingTask}
+          sectionName="Project Planning"
+          isOpen={openSection === 'Project Planning'}
+          onToggle={() => setOpenSection(openSection === 'Project Planning' ? null : 'Project Planning')}
+        />
+        <TodoSection
+          isAddingTask={isAddingTask}
+          setIsAddingTask={setIsAddingTask}
+          sectionName="Project Design"
+          isOpen={openSection === 'Project Design'}
+          onToggle={() => setOpenSection(openSection === 'Project Design' ? null : 'Project Design')}
+        />
+        <TodoSection
+          isAddingTask={isAddingTask}
+          setIsAddingTask={setIsAddingTask}
+          sectionName="Project Implementation"
+          isOpen={openSection === 'Project Implementation'}
+          onToggle={() => setOpenSection(openSection === 'Project Implementation' ? null : 'Project Implementation')}
+        />
       </div>
     </div>
   );

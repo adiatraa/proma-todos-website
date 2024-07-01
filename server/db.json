@@ -2,11 +2,35 @@
   "todoList": [
     {
       "id": "1",
-      "taskName": "Create HomePage",
+      "taskName": "Create HomePages",
       "assignee": "Adiat Rahman",
       "dueDate": "June 30 - Jul 1",
       "priority": "High",
       "status": "On track"
+    },
+    {
+      "id": "d444",
+      "taskName": "Create About Us Page",
+      "assignee": "Alexander",
+      "dueDate": "June 22 - Oct 25",
+      "priority": "Medium",
+      "status": "At risk"
+    },
+    {
+      "id": "0914",
+      "taskName": "Create Component",
+      "assignee": "Michigan Udin",
+      "dueDate": "June 21 - Jul 22",
+      "priority": "Low",
+      "status": "Off track"
+    },
+    {
+      "id": "edd9",
+      "taskName": "Create ERD",
+      "assignee": "Debo",
+      "dueDate": "June 21 - Jul 26",
+      "priority": "Low",
+      "status": "Done"
     }
   ]
 }
