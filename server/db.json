@@ -1,13 +1,28 @@
 {
-    "posts": [
-      { "id": "1", "title": "a title", "views": 100 },
-      { "id": "2", "title": "another title", "views": 200 }
-    ],
-    "comments": [
-      { "id": "1", "text": "a comment about post 1", "postId": "1" },
-      { "id": "2", "text": "another comment about post 1", "postId": "1" }
-    ],
-    "profile": {
-      "name": "typicode"
-    }
-  }
+    "todoPreview": [
+        {
+            "id": "1",
+            "taskName": "Create HomePage",
+            "assignee": "Adiat Rahman",
+            "dueDate": "June 30 - Jul 1",
+            "priority": "High",
+            "status": "On track"
+        },
+        {
+            "id": "2",
+            "taskName": "Create Detail Page",
+            "assignee": "Elon Musk",
+            "dueDate": "June 23 - Jul 4",
+            "priority": "Medium",
+            "status": "At risk"
+        },
+        {
+            "id": "1",
+            "taskName": "Create About Us Page",
+            "assignee": "Alexander",
+            "dueDate": "June 10 - June 14",
+            "priority": "Low",
+            "status": "Off track"
+        }
+    ]
+}
