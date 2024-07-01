@@ -22,11 +22,9 @@ function classNames(...classes) {
 }
 
 function App() {
-  const [newTask, setNewTask] = useState({ taskName: "", assignee: "", dueDate: "", priority: "", status: "" });
   const [isAddingTask, setIsAddingTask] = useState(false);
 
   const handleAddTask = () => {
-    setNewTask({ taskName: "", assignee: "", dueDate: "", priority: "", status: "" });
     setIsAddingTask(true);
   };
 
@@ -115,7 +113,7 @@ function App() {
         </div>
       </div>
       <div>
-        <TodoSection />
+        <TodoSection isAddingTask={isAddingTask} setIsAddingTask={setIsAddingTask} />
       </div>
     </div>
   );
